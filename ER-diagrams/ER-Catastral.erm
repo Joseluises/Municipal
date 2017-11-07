@@ -135,7 +135,7 @@
 			</connections>
 			<display>false</display>
 			<creation_date>2017-08-30 01:10:31</creation_date>
-			<updated_date>2017-10-21 18:36:26</updated_date>
+			<updated_date>2017-11-06 18:09:43</updated_date>
 			<model_property>
 				<name>Project Name</name>
 				<value></value>
@@ -175,12 +175,12 @@
 	<contents>
 		<table>
 			<id>0</id>
-			<height>229</height>
+			<height>192</height>
 			<width>157</width>
 				<font_name>Segoe UI</font_name>
 				<font_size>9</font_size>
-			<x>492</x>
-			<y>300</y>
+			<x>1020</x>
+			<y>38</y>
 			<color>
 				<r>128</r>
 				<g>128</g>
@@ -188,9 +188,9 @@
 			</color>
 			<connections>
 			</connections>
-			<physical_name>FichaCatastral</physical_name>
-			<logical_name>FichaCatastral</logical_name>
-			<description></description>
+			<physical_name>Predio</physical_name>
+			<logical_name>Predio</logical_name>
+			<description>Ficha Catastral</description>
 			<constraint></constraint>
 			<primary_key_name></primary_key_name>
 			<option></option>
@@ -207,12 +207,12 @@
 		</table>
 		<table>
 			<id>1</id>
-			<height>219</height>
-			<width>145</width>
+			<height>204</height>
+			<width>146</width>
 				<font_name>Segoe UI</font_name>
 				<font_size>9</font_size>
-			<x>203</x>
-			<y>24</y>
+			<x>84</x>
+			<y>37</y>
 			<color>
 				<r>128</r>
 				<g>128</g>
@@ -239,12 +239,12 @@
 		</table>
 		<table>
 			<id>2</id>
-			<height>230</height>
+			<height>205</height>
 			<width>145</width>
 				<font_name>Segoe UI</font_name>
 				<font_size>9</font_size>
-			<x>768</x>
-			<y>12</y>
+			<x>636</x>
+			<y>36</y>
 			<color>
 				<r>128</r>
 				<g>128</g>
@@ -271,12 +271,12 @@
 		</table>
 		<table>
 			<id>3</id>
-			<height>75</height>
+			<height>48</height>
 			<width>157</width>
 				<font_name>Segoe UI</font_name>
 				<font_size>9</font_size>
-			<x>936</x>
-			<y>24</y>
+			<x>804</x>
+			<y>38</y>
 			<color>
 				<r>128</r>
 				<g>128</g>
@@ -303,12 +303,12 @@
 		</table>
 		<table>
 			<id>4</id>
-			<height>75</height>
+			<height>48</height>
 			<width>193</width>
 				<font_name>Segoe UI</font_name>
 				<font_size>9</font_size>
-			<x>936</x>
-			<y>108</y>
+			<x>792</x>
+			<y>180</y>
 			<color>
 				<r>128</r>
 				<g>128</g>
@@ -335,44 +335,12 @@
 		</table>
 		<table>
 			<id>5</id>
-			<height>75</height>
-			<width>120</width>
-				<font_name>Segoe UI</font_name>
-				<font_size>9</font_size>
-			<x>408</x>
-			<y>24</y>
-			<color>
-				<r>128</r>
-				<g>128</g>
-				<b>192</b>
-			</color>
-			<connections>
-			</connections>
-			<physical_name>Via</physical_name>
-			<logical_name>Via</logical_name>
-			<description></description>
-			<constraint></constraint>
-			<primary_key_name></primary_key_name>
-			<option></option>
-			<columns>
-			</columns>
-			<indexes>
-			</indexes>
-			<complex_unique_key_list>
-			</complex_unique_key_list>
-			<table_properties>
-				<schema></schema>
-				<without_oids>true</without_oids>
-			</table_properties>
-		</table>
-		<table>
-			<id>6</id>
-			<height>75</height>
+			<height>205</height>
 			<width>160</width>
 				<font_name>Segoe UI</font_name>
 				<font_size>9</font_size>
-			<x>861</x>
-			<y>576</y>
+			<x>312</x>
+			<y>31</y>
 			<color>
 				<r>128</r>
 				<g>128</g>
@@ -382,70 +350,6 @@
 			</connections>
 			<physical_name>CuentaCorriente</physical_name>
 			<logical_name>CuentaCorriente</logical_name>
-			<description></description>
-			<constraint></constraint>
-			<primary_key_name></primary_key_name>
-			<option></option>
-			<columns>
-			</columns>
-			<indexes>
-			</indexes>
-			<complex_unique_key_list>
-			</complex_unique_key_list>
-			<table_properties>
-				<schema></schema>
-				<without_oids>true</without_oids>
-			</table_properties>
-		</table>
-		<table>
-			<id>7</id>
-			<height>75</height>
-			<width>161</width>
-				<font_name>Segoe UI</font_name>
-				<font_size>9</font_size>
-			<x>22</x>
-			<y>134</y>
-			<color>
-				<r>128</r>
-				<g>128</g>
-				<b>192</b>
-			</color>
-			<connections>
-			</connections>
-			<physical_name>TipoDocumento</physical_name>
-			<logical_name>TipoDocumento</logical_name>
-			<description></description>
-			<constraint></constraint>
-			<primary_key_name></primary_key_name>
-			<option></option>
-			<columns>
-			</columns>
-			<indexes>
-			</indexes>
-			<complex_unique_key_list>
-			</complex_unique_key_list>
-			<table_properties>
-				<schema></schema>
-				<without_oids>true</without_oids>
-			</table_properties>
-		</table>
-		<table>
-			<id>8</id>
-			<height>75</height>
-			<width>134</width>
-				<font_name>Segoe UI</font_name>
-				<font_size>9</font_size>
-			<x>36</x>
-			<y>24</y>
-			<color>
-				<r>128</r>
-				<g>128</g>
-				<b>192</b>
-			</color>
-			<connections>
-			</connections>
-			<physical_name>TipoPersona</physical_name>
-			<logical_name>TipoPersona</logical_name>
 			<description></description>
 			<constraint></constraint>
 			<primary_key_name></primary_key_name>

@@ -14,13 +14,13 @@ import org.openxava.jpa.*;
 			"sector,urbanizacion;"+
 			"tipo.descripcion,descripcion;"+
 			"]"),
-		@View(name="ViaVista1",	members="codigo;distrito;sector,urbanizacion,tipo;descripcion"),
-		@View(name="ViaVista2",	members="codigo,sector,urbanizacion,tipo,descripcion;"),
-		@View(name="ViaVista3",	members="codigo;sector,urbanizacion,tipo;descripcion;")
+		@View(name="ViaVista1",	members="codigo;distrito;sector,urbanizacion;tipo,descripcion"),
+		@View(name="ViaVista2",	members="codigo,sector,urbanizacion;tipo,descripcion"),
+		@View(name="ViaVista3",	members="sector,urbanizacion;tipo,descripcion;")
 })			
 @Tab(properties="codigo,distrito.sector,urbanizacion,descripcion,tipo,descripcion")
 public class Via extends Deletable{
-	@Column(length = 3)
+	@Column(length = 7)
 	@ReadOnly
 	private int codigo;
 	public int getCodigo() {

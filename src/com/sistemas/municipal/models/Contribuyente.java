@@ -45,7 +45,7 @@ import org.openxava.jpa.XPersistence;
 						"telefono, email;" +						
 						"];"+ 
 						"direccion[" + 
-						"via,numero,interior,manzana,lote;"+
+						"via;numero,interior,manzana,lote;"+
 						"];"+						
 						"Conyugue["+
 						"apellidoNombreConyugue;"+

@@ -1,0 +1,92 @@
+<?xml version = "1.0" encoding = "ISO-8859-1"?>
+
+<!DOCTYPE controllers SYSTEM "dtds/controllers.dtd">
+<controllers>
+	<!-- Adiciona Objetos al Detalle
+	<controller name="ValorTributario">
+		<extends controller="Typical"/>
+		<action name="añadir"
+			class="com.sistemas.municipal.actions.AddCtacteValorTributarioAction"
+			hide="true" image="images/create_new.gif"/>
+	</controller>
+	-->
+	
+	<!-- Actualiza Objetos en el campo deleted
+	<controller name="ValorTributario">
+		<extends controller="Typical"/>
+			<action name="delete" mode="detail" confirm="true"
+			class="com.sistemas.municipal.actions.PruebaDeleteValorTributarioAction"
+			image="images/delete.gif"
+			keystroke="Control D"/>
+	</controller>
+	-->
+
+	<!-- Controlador estándar para borrar en todos los módulos de la aplicación, atributo deleted en modo detalle y lista -->
+	<controller name="Municipal">
+		<extends controller="Typical"/>
+			<action name="delete" mode="detail" confirm="true"
+				class="com.sistemas.municipal.actions.MunicipalDeleteAction"
+				image="images/delete.gif"
+				keystroke="Control D"/>
+			<use-object name="xava_view"/>
+			<action name="deleteSelected" mode="list" confirm="true"
+				class="com.sistemas.municipal.actions.MunicipalDeleteSelectedAction"
+				keystroke="Control D"/>
+			<action name="deleteRow" mode="NONE" confirm="true"
+				class="com.sistemas.municipal.actions.MunicipalDeleteSelectedAction"
+				image="images/delete.gif"
+				in-each-row="true"/>
+	</controller>
+	
+	<!-- Controlador estándar para Módulos Trash -->
+	<controller name="Trash">
+		<action name="restore" mode="list"
+				class="com.sistemas.municipal.actions.MunicipalDeleteSelectedAction">
+				<set property="restore" value="true"/>
+		</action>		
+	</controller>
+	
+	<!-- Controlador para Entidad Valor Tributario --> 
+	<controller name="ValorTributario">
+		<extends controller="Municipal"/>
+		<action name="searchContribuyenteActivo"
+				class="com.sistemas.municipal.actions.SearchContribuyenteActivoAction"
+				hidden="true" image="images/search.gif" />
+		<action name="crearValorTributario" mode="detail"
+				class="com.sistemas.municipal.actions.CreateValorTributarioFromCuentaCorrienteAction"/>
+		<action name="imprimirOrdenDePago" mode="detail"
+				class="com.sistemas.municipal.reports.ValorTributarioPendienteReport"
+				image="images/pdf.gif"/>
+		<action name="imprimirResolucionDeDeterminacion" mode="detail"
+				class="com.sistemas.municipal.reports.ValorTributarioPendienteReport"
+				image="images/pdf.gif"/>
+	</controller>
+	
+	<!-- Controlador para Entidad Cuenta Corriente -->
+	<controller name="CuentaCorriente">
+		<extends controller="Municipal"/>
+		<action name="cuentaCorrientePendiente" mode="detail"
+				class="com.sistemas.municipal.reports.CuentaCorrientePendienteReport"
+				image="images/pdf.gif"/>
+		<action name="cuentaCorrientePagada" mode="detail"
+				class="com.sistemas.municipal.reports.CuentaCorrientePendienteReport"
+				image="images/pdf.gif"/>
+	</controller>
+	
+	<controller name="CuentaCorriente">
+		<extends controller="Municipal"/>
+		<subcontroller
+			controller="CuentaCorrienteImpresion"
+			icono="menu"/>	
+	</controller>
+	
+	<controller name="CuentaCorrienteImpresion">
+		<action name="cuentaCorrientePendiente" mode="detail"
+				class="com.sistemas.municipal.reports.CuentaCorrientePendienteReport"
+				image="images/pdf.gif"/>
+		<action name="cuentaCorrientePagada" mode="detail"
+				class="com.sistemas.municipal.reports.CuentaCorrientePendienteReport"
+				image="images/pdf.gif"/>
+	</controller>
+	
+</controllers>

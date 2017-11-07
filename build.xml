@@ -47,7 +47,8 @@
 	<target name="actualizarEsquema">
 		<ant antfile="../OpenXava/build.xml" target="updateSchemaJPA">
 			<property name="persistence.unit" value="junit"/>
-			<property name="schema.path" value="D:/Municipal/apache-tomcat-8.0.35/lib/postgresql-9.4-1206-jdbc41.jar"/>
+			<property name="schema.path" value="D:/Municipal/apache-tomcat-9.0.1/lib/postgresql-9.4-1206-jdbc41.jar"/>
+			
 		</ant>
 	</target>	
 </project>

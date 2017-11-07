@@ -25,14 +25,11 @@ import org.openxava.jpa.XPersistence;
 @Entity
 @Views({ @View(members = "generales[" +
 		"codigo;"+
-		"];"+
-		"direccionPredial["+
-		"via;"+
-		"numero,interior,manzana,lote;"+
+		"via,numero,interior,manzana,lote;"+
 		"]"),	
 @View(name = "PredioVista1", members = "codigo;via,numero,interior,manzana,lote")})
 public class Predio extends Deletable {
-	@Column(length = 12)
+	@Column(length = 7)
 	@ReadOnly
 	private int codigo;
 	public int getCodigo() {
@@ -45,7 +42,7 @@ public class Predio extends Deletable {
 
 	@ManyToOne(fetch=FetchType.LAZY, optional=false) 
 	@SearchListCondition("${distrito} = 30")
-	@ReferenceView("ViaVista3")
+	@ReferenceView("ViaVista2")
 	@NoCreate @NoModify @NoFrame
 	private Via via;
 	

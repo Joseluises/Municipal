@@ -17,19 +17,16 @@ import com.sistemas.municipal.actions.OnChangeArancelViaAction;
 @Entity
 @Views({
 	@View(members=
-			"generales["+
 			"anexo,fechaRecepcion,condicionPropiedad,porcentajeCondominio;"+
+			"Predio["+
 			"predio;"+
 			"];"+
 			"Caracteristica["+
 			"estadoPredio,fechaAdquisicion,frontis;"+
 			"tipoPredio;"+
-			"tipoAfectacion,usoPredio,ubicacionParque;"+
-			"]"+
-			"Areas["+
-			"areaConstruida;"+
-			"otraInstalacion;"+
-			"areaM2,montoArancel;"+
+			"usoPredio,tipoAfectacion;"+
+			"ubicacionParque;"+
+			"areaConstruida,otraInstalacion,areaM2,montoArancel;"+
 			"];" +
 			"niveles{prediourbanodetalle};"+
 			"foto{foto};"+
@@ -59,7 +56,7 @@ public class PredioUrbano extends Deletable {
 	@NoCreate
 	@NoModify
 	@NoFrame
-	@OnChange(OnChangeArancelViaAction.class)	
+//	@OnChange(OnChangeArancelViaAction.class)	
 	@ReferenceView("PredioVista1")
 	private Predio predio;
 	public Predio getPredio() {

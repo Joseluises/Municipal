@@ -21,7 +21,7 @@ import org.openxava.util.*;
 				"ainiHr,numeroHr,fechaDeclaracion,motivoDeclaracion;"+
 				"contribuyente;"+
 				"prediosDeclarados;"+
-				"autovaluoDeclarado,impuestoAnual;"+
+				"autovaluoDeclarado,impuestoTrimestral,impuestoAnual;"+
 				"];"+
 				"Predios{"+
 				"prediourbano;"+
@@ -30,7 +30,7 @@ import org.openxava.util.*;
 		@View(name="HojaResumenVista1",	members="codigoHr")
 })
 @Entity
-@Tab(properties="ainiHr,numeroHr,contribuyente.codigo, contribuyente.apellidoNombre,motivoDeclaracion.descripcion,prediosDeclarados,autovaluoDeclarado,impuestoAnual")
+@Tab(properties="ainiHr,numeroHr, contribuyente.codigo, contribuyente.apellidoNombre,motivoDeclaracion.descripcion,fechaDeclaracion,prediosDeclarados,autovaluoDeclarado,impuestoAnual")
 //@EntityListeners(AccessTrackingListener.class)
 public class HojaResumen extends Deletable {
 	@Column(length = 4)
@@ -113,7 +113,7 @@ public class HojaResumen extends Deletable {
 	private Contribuyente contribuyente;
 	
 	@OneToMany(mappedBy="parentHojaResumen", cascade=CascadeType.ALL)
-	@ListProperties("anexo,predio.via.sector.descripcion,predio.via.urbanizacion.descripcion,predio.via.tipo.descripcion,predio.via.descripcion;"
+	@ListProperties("anexo,predio.codigo,predio.via.sector.descripcion,predio.via.urbanizacion.descripcion,predio.via.tipo.descripcion,predio.via.descripcion;"
 					+"predio.numero,predio.interior,predio.manzana,predio.lote, totalAutovaluo")
 	private Collection<PredioUrbano> prediourbano = new ArrayList<PredioUrbano>();
 	

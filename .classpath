@@ -8,8 +8,5 @@
 	<classpathentry kind="src" path="persistence"/>
 	<classpathentry kind="src" path="xava"/>
 	<classpathentry kind="src" path="i18n"/>
-	<classpathentry kind="lib" path="/OpenXavaTest/lib/jbossall-client.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/AccessTracking"/>
-	<classpathentry kind="lib" path="E:/openxava-4.7.1/tomcat/lib/mysql-connector-java-5.0.8-bin.jar"/>
 	<classpathentry kind="output" path="web/WEB-INF/classes"/>
 </classpath>
