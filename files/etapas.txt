@@ -1,0 +1,25 @@
+1.- ETAPA 1
+	Contribuyentes
+		Codigo Autogenerado			[ ]
+	Declaracion Jurada
+		Codigo Autogenerado			[X]
+		Resumen Autovaluo
+		Resumen Impuesto Predial
+		Monto Arancel por Via		[X]
+		Categorias					[ ]
+		Clasificacion, Material 	[ ]
+		y Estado Conservacion
+		Reporte HR y PU				[ ]
+	Cuenta Corriente
+	Caja
+	
+1.- ETAPA 2
+	Fraccionamiento
+	Valores
+	Coactivo
+	
+2.- ETAPA 3
+	Fiscalizacion
+	Catastro
+	Multas Administrativas
+	Multas Tributarias

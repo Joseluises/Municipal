@@ -6,7 +6,6 @@ import org.openxava.jpa.*;
 import com.sistemas.municipal.models.*;
 
 public class PruebaDeleteValorTributarioAction extends ViewBaseAction{
-	@Override
 	public void execute() throws Exception{
 //		addMessage("no se preocupe! He limpiado solamente la pantalla");
 //		getView().clear();

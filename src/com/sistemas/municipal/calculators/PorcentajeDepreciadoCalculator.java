@@ -15,12 +15,10 @@ import org.openxava.util.IConnectionProvider;
 		
 		private IConnectionProvider provider;
 		
-		@Override
 		public void setConnectionProvider(IConnectionProvider provider) {
 			this.provider = provider;
 		}
 		
-		@Override
 		public Object calculate() throws Exception {
 //			Log log = LogFactory.getLog(PorcentajeDepreciadoCalculator.class);
 //			log.info("FJA:Entering Calculate");

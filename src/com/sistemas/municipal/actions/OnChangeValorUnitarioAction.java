@@ -6,7 +6,6 @@ import java.math.*;
 import org.openxava.actions.OnChangePropertyBaseAction;
 
 public class OnChangeValorUnitarioAction extends OnChangePropertyBaseAction{
-	@Override
 	public void execute() throws Exception{
 		String categoria = (String) getView().getValue("categorias");
 		Integer aini= (Integer) getView().getRoot().getValue("ainiHr");

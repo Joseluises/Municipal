@@ -12,8 +12,6 @@ public class BigDecimalCalculator implements ICalculator {
 
 	private Object value;
 	
-
-	@Override
 	public Object calculate() throws Exception {		
 	    if (getValue()==null) return new BigDecimal(0);
 		return 100.00;

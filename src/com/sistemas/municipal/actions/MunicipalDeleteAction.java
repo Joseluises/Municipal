@@ -6,7 +6,6 @@ import org.openxava.actions.*;
 import org.openxava.model.*;
 
 public class MunicipalDeleteAction extends ViewBaseAction{
-	@Override
 	public void execute() throws Exception{
 		if(getView().getKeyValuesWithValue().isEmpty()){
 			addError("no_delete_not_exists");

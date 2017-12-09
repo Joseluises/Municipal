@@ -13,12 +13,10 @@ public class ArancelViaCalculator implements IJDBCCalculator { // 1
  private int parentvia_id;
  
  
- @Override
-public void setConnectionProvider(IConnectionProvider provider) {
+ public void setConnectionProvider(IConnectionProvider provider) {
 	 this.provider = provider;
  }
  
- @Override
 public Object calculate() throws Exception {
  Connection con = provider.getConnection();
  try {

@@ -120,7 +120,7 @@ public class HojaResumen extends Deletable {
 	@PrePersist
 	public void generarNumeroHr() throws Exception {
 		Query query = XPersistence.getManager()
-				.createQuery("select max(i.numeroHr) from " + getClass().getSimpleName() + " i where i.ainiHr = :ainiHr");
+				.createQuery("SELECT max(i.numeroHr) FROM " + getClass().getSimpleName() + " i WHERE i.ainiHr = :ainiHr");
 		query.setParameter("ainiHr", ainiHr);
 		Integer ultimoNumero = (Integer) query.getSingleResult();
 		this.numeroHr = ultimoNumero == null ? 1 : ultimoNumero + 1;

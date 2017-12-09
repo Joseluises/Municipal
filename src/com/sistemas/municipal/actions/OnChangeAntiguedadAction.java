@@ -7,7 +7,6 @@ import org.openxava.actions.OnChangePropertyBaseAction;
 import org.openxava.jpa.XPersistence;
 
 public class OnChangeAntiguedadAction extends OnChangePropertyBaseAction{
-	@Override
 	public void execute() throws Exception{
 		Integer anoantiguedad = (Integer) getView().getValue("anoantiguedad");
 		if(getNewValue()==null || anoantiguedad==0){

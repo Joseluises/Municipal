@@ -11,7 +11,6 @@ import org.apache.commons.logging.LogFactory;
 public class NombreContribuyenteCalculator implements ICalculator{
 	private int codigoid;
 	
-	@Override
 	public Object calculate() throws Exception{
 		System.out.println("Ejecutando Calculador");
 		Contribuyente contrib = getManager().find(Contribuyente.class, codigoid);

@@ -7,7 +7,6 @@ import org.openxava.jpa.*;
 import com.sistemas.municipal.models.*;
 
 public class CreateValorTributarioFromCuentaCorrienteAction extends ViewBaseAction{
-	@Override
 	public void execute() throws Exception{
 		// Clase que pasa parámetros a la Cuenta Corriente para generar [Valor Tributario]
 		Object valorOficina = getView().getValue("oficina.id");

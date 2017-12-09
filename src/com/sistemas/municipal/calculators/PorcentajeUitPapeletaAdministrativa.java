@@ -7,7 +7,6 @@ import static org.openxava.jpa.XPersistence.*;
 public class PorcentajeUitPapeletaAdministrativa implements ICalculator{
 	private int codigoMulta;
 	
-	@Override
 	public Object calculate() throws Exception{
 		SancionPapeleta sancionpapeleta = getManager().find(SancionPapeleta.class, codigoMulta);
 		return sancionpapeleta.getPorcentajeuit();

@@ -36,7 +36,6 @@ import org.openxava.calculators.CurrentDateCalculator;
 import org.openxava.calculators.CurrentYearCalculator;
 import org.openxava.jpa.XPersistence;
 
-
 @Entity
 @Views({ @View(members = "generales[" +
 						"codigo;"+
@@ -52,7 +51,8 @@ import org.openxava.jpa.XPersistence;
 						"tipoDocumentoConyugue,numeroDocumentoConyugue;"+ 
 						"]"),
 		@View(name = "ContribuyenteVista1", members = "codigo; apellidoNombre"),
-		@View(name = "ContribuyenteVista2", members = "codigo; apellidoNombre; tipoDocumento.descripcion, numeroDocumento") })
+		@View(name = "ContribuyenteVista2", members = "codigo; apellidoNombre; tipoDocumento, numeroDocumento"),
+		@View(name = "ContribuyenteVista3", members = "codigo; apellidoNombre; tipoDocumento, numeroDocumento;via") })
 @Tabs({ @Tab(rowStyles = @RowStyle(style = "row-highlight", property = "tipoPersona.descripcion", value = "JURIDICA") , baseCondition = "${deleted}=false", properties = "codigo,apellidoNombre,tipoPersona.descripcion,",
 				defaultOrder = "${id}"),
 		@Tab(name = "Deleted", baseCondition = "${deleted}=true", properties = "codigo,apellidoNombre,tipoPersona.descripcion,",

@@ -4,10 +4,7 @@ import java.math.*;
 import java.util.List;
 import org.openxava.actions.OnChangePropertyBaseAction;
 import com.sistemas.municipal.models.DepreciacionNivel;
-
-
 public class OnChangePorcentajeDepreciadoAction extends OnChangePropertyBaseAction{
-	@Override
 	public void execute() throws Exception{
 		Object clasif = getView().getValue("clasificacionNivel.id");
 		Object mater = getView().getValue("materialNivel.id");
@@ -52,7 +49,6 @@ public class OnChangePorcentajeDepreciadoAction extends OnChangePropertyBaseActi
 			
 			getView().setValue("montoDepreciado",nmontoDepreciado); 
 			getView().setValue("valorUnitarioDepreciado",nvalorUnitarioDepreciado);
-
 		}
     }
 }

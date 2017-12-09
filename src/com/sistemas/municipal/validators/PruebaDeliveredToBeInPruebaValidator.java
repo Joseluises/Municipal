@@ -7,7 +7,6 @@ public class PruebaDeliveredToBeInPruebaValidator implements IValidator{
 	private String descripcion;
 	private boolean delivered;
 	
-	@Override
 	public void validate(Messages errors) throws Exception{
 		if(!delivered){
 			errors.add("order_must_be_delivered", descripcion, delivered);

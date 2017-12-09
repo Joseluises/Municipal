@@ -6,7 +6,6 @@ import java.math.*;
 import org.openxava.actions.OnChangePropertyBaseAction;
 
 public class OnChangeAreaConstruidaAction extends OnChangePropertyBaseAction{
-	@Override
 	public void execute() throws Exception{
 		BigDecimal nareaConstruida = (BigDecimal) getView().getValue("areaConstruida");
 		BigDecimal nvalorUnitarioDepreciado= (BigDecimal) getView().getValue("valorUnitarioDepreciado");

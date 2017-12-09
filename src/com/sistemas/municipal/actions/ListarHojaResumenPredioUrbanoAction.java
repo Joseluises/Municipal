@@ -19,8 +19,7 @@ public class ListarHojaResumenPredioUrbanoAction extends BaseAction
     private Tab tab;
     private ModuleContext context;
  
-    @Override
-	public void execute() throws Exception {
+    public void execute() throws Exception {
         Map claveCliente = (Map) tab.getTableModel().getObjectAt(row);          
         int codigoCliente = ((Integer) claveCliente.get("codigo")).intValue();
         Tab tabFacturas = (Tab)
@@ -42,19 +41,15 @@ public class ListarHojaResumenPredioUrbanoAction extends BaseAction
         this.tab = tab;
     }
  
-    @Override
 	public String getNextModule() {                                            
         return "FacturasDeCliente";
     }
  
-    @Override
 	public void setContext(ModuleContext context) {                            
         this.context = context;
     }
  
-    @Override
 	public boolean hasReinitNextModule() {                                     
         return true;
     }
- 
 }

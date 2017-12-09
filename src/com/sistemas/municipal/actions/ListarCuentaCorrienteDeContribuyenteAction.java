@@ -14,8 +14,7 @@ public class ListarCuentaCorrienteDeContribuyenteAction extends BaseAction
     @Inject
     private Tab tab;
  
-    @Override
-	public void execute() throws Exception {
+ 	public void execute() throws Exception {
         Map claveContribuyente = (Map) tab.getTableModel().getObjectAt(row);
         int codigoContribuyente = ((Integer) claveContribuyente.get("id")).intValue();
         Tab tabCuentaCorriente = (Tab)
@@ -37,12 +36,10 @@ public class ListarCuentaCorrienteDeContribuyenteAction extends BaseAction
         this.tab = tab;
     }
  
-    @Override
 	public String getNextModule() {                
         return "CuentaCorriente";
     }
  
-    @Override
 	public boolean hasReinitNextModule() {                               
         return true;
     }

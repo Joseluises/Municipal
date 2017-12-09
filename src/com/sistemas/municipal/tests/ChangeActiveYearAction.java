@@ -6,7 +6,6 @@ public class ChangeActiveYearAction extends ViewBaseAction {
 	
 	private Integer activeYear;
 	
-	@Override
 	public void execute() throws Exception {
 		Integer year = (Integer) getView().getValue("year");		
 		setActiveYear(year);	

@@ -8,6 +8,15 @@ import org.openxava.annotations.*;
 import org.openxava.jpa.*;
 
 @Entity
+@Views({
+	@View(members=
+			"generales["+
+			"codigo;"+
+			"via;"+
+			"]"),
+		@View(name="ViaVista1",	members="codigo;via")
+})			
+@Tab(properties="codigo,via")
 public class Arancel extends Deletable{
 	@Column(length=6)
 	@ReadOnly(forViews="DEFAULT")

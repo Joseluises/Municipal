@@ -7,7 +7,6 @@ import org.openxava.actions.*;
 import javassist.tools.rmi.*;
 
 public class VerContribuyenteCuentaCorrienteAction extends ViewBaseAction{
-	@Override
 	public void execute() throws Exception{
 		try{
 			Object codigo = getView().getValue("contribuyente.codigo");

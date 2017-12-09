@@ -56,7 +56,7 @@ public class PredioUrbano extends Deletable {
 	@NoCreate
 	@NoModify
 	@NoFrame
-//	@OnChange(OnChangeArancelViaAction.class)	
+	@OnChange(OnChangeArancelViaAction.class)	
 	@ReferenceView("PredioVista1")
 	private Predio predio;
 	public Predio getPredio() {
