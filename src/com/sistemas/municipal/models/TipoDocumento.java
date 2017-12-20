@@ -1,6 +1,8 @@
 package com.sistemas.municipal.models;
 
 import javax.persistence.*;
+
+import org.hibernate.envers.Audited;
 import org.openxava.annotations.*;
 import org.openxava.jpa.*;
 
@@ -13,6 +15,7 @@ import org.openxava.jpa.*;
 			"]"),
 		@View(name="TipoDocumentoVista1",	members="codigo,descripcion;")
 })			
+@Audited
 public class TipoDocumento extends Deletable{
 	@Column(length=6)
 	@ReadOnly

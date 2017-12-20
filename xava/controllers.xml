@@ -88,20 +88,27 @@
 		<subcontroller
 			controller="imprimir"
 			icon="menu"/>
+		<action name="Copiar" mode="list"
+				class="com.sistemas.municipal.actions.CopiarHojaResumenAction"
+				image="images/pdf.gif"/>
 	</controller>
 	<controller name="procesos">
-			<action name="ImpuestoPredial" mode="detail"
-				class="com.sistemas.municipal.actions.CopiarHojaResumenAction"/>
+		<action name="Predial" mode="detail"
+				class="com.sistemas.municipal.actions.CalcularPredialAction"
+				image="images/pdf.gif"/>
 		<action name="Arbitrios" mode="detail"
-				class="com.sistemas.municipal.reports.CuentaCorrientePendienteReport"
-				image="images/copy.gif"/>
+				class="com.sistemas.municipal.actions.CalcularArbitriosAction"
+				image="images/pdf.gif"/>
+		<action name="Copiar" mode="detail" confirm="true"
+				class="com.sistemas.municipal.actions.CopiarHojaResumenAction"
+				image="images/pdf.gif"/>
 	</controller>
 	<controller name="imprimir">
-		<action name="hojaResúmen" mode="detail"
-				class="com.sistemas.municipal.reports.CuentaCorrientePendienteReport"
+		<action name="HR" mode="detail"
+				class="com.sistemas.municipal.reports.HojaResumenReport"
 				image="images/pdf.gif"/>
-		<action name="predioUrbano" mode="detail"
-				class="com.sistemas.municipal.reports.CuentaCorrientePendienteReport"
+		<action name="PU" mode="detail"
+				class="com.sistemas.municipal.reports.PredioUrbanoReport"
 				image="images/pdf.gif"/>
 	</controller>
 	

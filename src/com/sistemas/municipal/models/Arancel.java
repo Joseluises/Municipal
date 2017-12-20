@@ -42,6 +42,13 @@ public class Arancel extends Deletable{
 		Integer ultimoCodigo = (Integer) query.getSingleResult();
 		this.codigo = ultimoCodigo == null?1:ultimoCodigo + 1;
 	}
+	
+	private static List<Arancel> buscarPorArancel(Object predio, int aini) {
+		Query query = XPersistence.getManager().createQuery("FROM ArancelDetalle WHERE aini=:aini AND parentarancel_id=:predio");
+		query.setParameter("predio", predio);
+		query.setParameter("aini", aini);
+		return query.getResultList();
+	}
 
 	public int getCodigo() {
 		return codigo;

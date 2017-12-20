@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.3.final using JasperReports Library version 6.4.3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="HojaResumen" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1cc06f6b-14f7-4d8c-b5aa-a726b20e8854">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="aini" class="java.lang.Integer"/>
+	<parameter name="codigo" class="java.lang.Integer"/>
+	<parameter name="contribuyente" class="java.lang.String"/>
+	<parameter name="direccionfiscal" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="0" width="150" height="18" uuid="41f23138-a6b5-4e76-8ce7-6ff1316b8104"/>
+				<textElement verticalAlignment="Top" rotation="None">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Municipalidad Distrital de Supe Pueblo]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="540" y="2" width="16" height="16" uuid="71acd853-1e51-4f33-94da-dfcc9cffb413"/>
+				<textElement textAlignment="Right">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="99" splitType="Stretch">
+			<staticText>
+				<reportElement x="490" y="0" width="54" height="40" uuid="43fc8305-8758-4fd6-a166-3dea494ba976"/>
+				<textElement textAlignment="Center" verticalAlignment="Top" rotation="None">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[HR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="97" y="0" width="323" height="20" uuid="70f7f155-f3b4-4dbb-85bf-738058b930e9"/>
+				<textElement textAlignment="Center" verticalAlignment="Top" rotation="None">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DECLARACION JURADA DEL IMPUESTO  AÑO PREDIAL]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="420" y="0" width="38" height="20" uuid="bcdd506d-f616-499a-af7c-12c5d2b7f782"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{aini}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="482" y="28" width="70" height="12" uuid="5612e299-f710-4494-affd-58fc660c0bd9"/>
+				<textElement verticalAlignment="Top" rotation="None">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hoja de Resúmen]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="29" width="34" height="12" uuid="ae4cc664-8b0d-4e46-a598-28572748e693"/>
+				<textElement verticalAlignment="Top" rotation="None">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Código:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="46" width="64" height="12" uuid="fc1bdf22-c33b-4174-abdc-73af83848f31"/>
+				<textElement verticalAlignment="Top" rotation="None">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Contribuyente:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="81" y="31" width="59" height="13" uuid="cc6b067c-c2c5-4f72-98bc-fb171439edb6"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{codigo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="81" y="47" width="274" height="12" uuid="3d294f64-d164-45f0-b3f7-a6ad2bed439a"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{contribuyente}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="63" width="68" height="12" uuid="048145c1-9599-4fd4-903a-74567493111b"/>
+				<textElement verticalAlignment="Top" rotation="None">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dirección Fiscal:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="81" y="63" width="319" height="11" uuid="895abe61-bd4f-4258-9506-9ebacdba2088"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{direccionfiscal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="1" width="551" height="17" uuid="2e72730c-27e8-47a8-94bc-f2e66717626d"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="11" y="3" width="40" height="12" uuid="406948f1-5782-44b2-a8fa-ef49777d1718"/>
+				<textElement textAlignment="Center" verticalAlignment="Top" rotation="None">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Anexo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="116" y="3" width="170" height="12" uuid="13b3ff56-3159-4e9f-8646-d32cc31ee2f1"/>
+				<textElement textAlignment="Center" verticalAlignment="Top" rotation="None">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ubicación del Predio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="350" y="4" width="60" height="12" uuid="73e10303-dbcc-4ba6-b194-5a95584a936e"/>
+				<textElement textAlignment="Center" verticalAlignment="Top" rotation="None">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[% Cond.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="470" y="4" width="60" height="12" uuid="a84a631e-3106-4261-b3e1-38175dac04b7"/>
+				<textElement textAlignment="Center" verticalAlignment="Top" rotation="None">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Autovalúo]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

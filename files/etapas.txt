@@ -1,17 +1,28 @@
 1.- ETAPA 1
 	Contribuyentes
-		Codigo Autogenerado			[ ]
+		Codigo Autogenerado			[X]
+		Borrado Logico				[X]
+		
 	Declaracion Jurada
 		Codigo Autogenerado			[X]
-		Resumen Autovaluo
-		Resumen Impuesto Predial
+		Borrado Logico				[ ]
 		Monto Arancel por Via		[X]
 		Categorias					[ ]
 		Clasificacion, Material 	[ ]
 		y Estado Conservacion
 		Reporte HR y PU				[ ]
+		Categorias->ValorUnitario	[X]
+		Depreciacion				[X]
+		Valor Area Construida		[X]
+		Valor Construida			[ ]
+		Montos Cabecera->Detalle	[ ] 
+		Calcular IP y Arbitrios		[ ]
+		Valor Terreno				[ ]
+		
 	Cuenta Corriente
+	
 	Caja
+	
 	
 1.- ETAPA 2
 	Fraccionamiento

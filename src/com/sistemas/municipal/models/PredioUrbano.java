@@ -13,6 +13,7 @@ import org.openxava.calculators.CurrentYearCalculator;
 import org.openxava.jpa.XPersistence;
 
 import com.sistemas.municipal.actions.OnChangeArancelViaAction;
+import com.sistemas.municipal.actions.OnChangeValorTerrenoAction;
 
 @Entity
 @Views({
@@ -47,6 +48,7 @@ public class PredioUrbano extends Deletable {
 	private Date fechaAdquisicion;
 	
 	@Column(length=3)
+	@Required
 	private BigDecimal porcentajeCondominio;
 
 	@Column(length=9)
@@ -101,11 +103,13 @@ public class PredioUrbano extends Deletable {
 	
 	@Column(length=9)
 	@Required
+	@OnChange(OnChangeValorTerrenoAction.class)
 	private BigDecimal areaM2;
 	
 	@Column(length=9)
 	@ReadOnly
 	@Required
+	@OnChange(OnChangeValorTerrenoAction.class)
 	public BigDecimal montoArancel;
 	
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
@@ -151,12 +155,12 @@ public class PredioUrbano extends Deletable {
 	
 	@ReadOnly
 	@Column(length=9)
-	@Depends("areaM2")
 	private BigDecimal valorTerreno;
+//	@Depends("areaM2, montoArancel")
 	public BigDecimal getValorTerreno() {
-		return (areaM2).multiply(montoArancel)==null?BigDecimal.ZERO:(areaM2).multiply(montoArancel);
+//		return (areaM2).multiply(montoArancel)==null?BigDecimal.ZERO:(areaM2).multiply(montoArancel);
+		return valorTerreno;
 	}
-
 	public void setValorTerreno(BigDecimal valorTerreno) {
 		this.valorTerreno = valorTerreno;
 	}
@@ -189,6 +193,23 @@ public class PredioUrbano extends Deletable {
 	@OneToMany(mappedBy="parentPredioUrbano", cascade=CascadeType.ALL)
 	@ListProperties("nropiso.descripcion,antiguedad,categorias,valorUnitario,incremento,montoDepreciado,valorUnitarioDepreciado,areaConstruida,valorAreaConstruida,valorAreaComun,valorConstruccion")
 	private Collection<PredioUrbanoDetalle> prediourbanodetalle = new ArrayList<PredioUrbanoDetalle>();
+	
+
+	@PrePersist
+	private void onPersist(){
+		getParentHojaResumen().getPrediourbano().add(this);
+		getParentHojaResumen().actualizarPredios();
+	}
+	
+	@PreUpdate
+	private void onUpdate() {
+		
+	}
+	
+	@PreRemove
+	private void onRemove() {
+		
+	}
 	
 	public HojaResumen getParentHojaResumen() {
 		return parentHojaResumen;

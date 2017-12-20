@@ -41,10 +41,10 @@ public class ArancelDetalle extends Deletable{
 	@Column(length=6)
 	private BigDecimal montoViaInpar;
 	
-	public static ArancelDetalle findByVia(int aini, int via){
-		Query query = XPersistence.getManager().createQuery("from DetalleVia where aini = :aini and parentvia_id = :via");
+	public static ArancelDetalle buscarArancel(Object predio, int aini){
+		Query query = XPersistence.getManager().createQuery("FROM ArancelDetalle WHERE aini=:aini AND parentarancel_id=:predio");
 		query.setParameter("aini", aini);		
-		query.setParameter("via", via);
+		query.setParameter("predio", predio);
 		return (ArancelDetalle) query.getSingleResult();
 	}
 

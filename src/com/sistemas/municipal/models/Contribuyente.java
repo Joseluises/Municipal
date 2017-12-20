@@ -17,6 +17,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.Query;
 
+import org.hibernate.envers.Audited;
 import org.openxava.annotations.DefaultValueCalculator;
 import org.openxava.annotations.DescriptionsList;
 import org.openxava.annotations.NoCreate;

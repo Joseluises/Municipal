@@ -4,11 +4,13 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.*;
 import javax.validation.*;
 
 import org.apache.commons.beanutils.*;
+import org.hibernate.envers.Audited;
 import org.openxava.annotations.*;
 import org.openxava.calculators.CurrentDateCalculator;
 import org.openxava.calculators.CurrentYearCalculator;
@@ -58,7 +60,7 @@ public class HojaResumen extends Deletable {
 		int result = 0;
 		for(PredioUrbano prediourbano: getPrediourbano())
 		{
-			result =result+1; 
+			result++; 
 		}
 		return result;
 	}
@@ -116,16 +118,27 @@ public class HojaResumen extends Deletable {
 	@ListProperties("anexo,predio.codigo,predio.via.sector.descripcion,predio.via.urbanizacion.descripcion,predio.via.tipo.descripcion,predio.via.descripcion;"
 					+"predio.numero,predio.interior,predio.manzana,predio.lote, totalAutovaluo")
 	private Collection<PredioUrbano> prediourbano = new ArrayList<PredioUrbano>();
-	
+
 	@PrePersist
-	public void generarNumeroHr() throws Exception {
+	public void generarNumeroHr(){
 		Query query = XPersistence.getManager()
 				.createQuery("SELECT max(i.numeroHr) FROM " + getClass().getSimpleName() + " i WHERE i.ainiHr = :ainiHr");
 		query.setParameter("ainiHr", ainiHr);
 		Integer ultimoNumero = (Integer) query.getSingleResult();
 		this.numeroHr = ultimoNumero == null ? 1 : ultimoNumero + 1;
 	}
-
+	
+	public static HojaResumen BuscarPorId(int id) throws NoResultException{
+		Query query = org.openxava.jpa.XPersistence.getManager().createQuery("FROM HojaResumen o WHERE o.id =:id");
+		query.setParameter("id", new Integer(id));
+		return (HojaResumen) query.getSingleResult();
+	}
+	
+	public void actualizarPredios() {
+		setPrediosDeclarados(getPrediosDeclarados());
+		getPrediosDeclarados();
+	}
+	
 	public int getAiniHr() {
 		return ainiHr;
 	}
@@ -182,28 +195,45 @@ public class HojaResumen extends Deletable {
 		return ainiHr+ "/" +numeroHr;
 	}
 	
-	public void crearHojaResumen() throws ValidationException{  // excepcion de aplicacion
+	public void crearHojaResumen() throws ValidationException{
 		try{
-		HojaResumen hojaResumen = new HojaResumen();
-		BeanUtils.copyProperties(hojaResumen, this); // copiar todas las propiedades de hojaresumen
-		hojaResumen.setId(0); // copiar con ID diferente
-//		hojaResumen.setFechaDeclaracion(new Date());
-		hojaResumen.setPrediourbano(new ArrayList());
-		XPersistence.getManager().persist(hojaResumen);
-		copiarDetalleHojaResumen(hojaResumen);
-//		this.hojaResumen = HojaResumen;
-		}catch (Exception ex){ // excepcion de sistema
+			HojaResumen hojaResumen = new HojaResumen();
+			BeanUtils.copyProperties(hojaResumen, this);
+			hojaResumen.setId(0);
+			hojaResumen.setPrediourbano(new ArrayList());
+			XPersistence.getManager().persist(hojaResumen);
+			copiarDetalleHojaResumen(hojaResumen);
+		}catch (Exception ex){
 			throw new SystemException("imposible_crear_hojaresumen",ex);
 		}
 	}
 	
 	private void copiarDetalleHojaResumen(HojaResumen hojaResumen) throws Exception{
-		for(PredioUrbano prediourbano: getPrediourbano()){
-			PredioUrbano hojaResumenDetalle = (prediourbano); // clonar cada elemento
-			BeanUtils.cloneBean(prediourbano);
-			hojaResumenDetalle.setId(0); // nueva entidad
-			hojaResumenDetalle.setParentHojaResumen(hojaResumen); // nuevo padre
-			XPersistence.getManager().persist(prediourbano); // persistente
-		} 
+		for(PredioUrbano predioLista: getPrediourbano()){
+			PredioUrbano predio = (PredioUrbano) BeanUtils.cloneBean(predioLista);
+			predio.setId(0);
+			predio.setParentHojaResumen(hojaResumen);
+			predio.setPrediourbanodetalle(new ArrayList());
+			XPersistence.getManager().persist(predio);
+		}
+	}
+	
+	public void calcularPredial() throws Exception{
+		for(PredioUrbano predioUrbano: getPrediourbano()) {
+			for(PredioUrbanoDetalle predioUrbanoDetalle: predioUrbano.getPrediourbanodetalle()){
+				predioUrbanoDetalle.getCategorias();
+				BigDecimal pDep = DepreciacionNivel.buscarPorcDepreciacionNivel(predioUrbanoDetalle.getClasificacionNivel(),
+						predioUrbanoDetalle.getMaterialNivel(),predioUrbanoDetalle.getAntiguedad(), predioUrbanoDetalle.getConservacionNivel());
+			}
+		}
+		CuentaCorriente cuentaCorriente = new CuentaCorriente();
+		cuentaCorriente.setId(0);
+		XPersistence.getManager().persist(cuentaCorriente);
+	}
+	
+	public void calcularArbitrios() throws Exception{
+		CuentaCorriente cuentaCorriente = new CuentaCorriente();
+		cuentaCorriente.setId(0);
+		XPersistence.getManager().persist(cuentaCorriente);
 	}
 }

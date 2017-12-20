@@ -68,12 +68,23 @@ public class DepreciacionNivel extends Deletable{
 	@Column(length=5)
 	private BigDecimal muyMalo;
 	
-	public static List<DepreciacionNivel> buscarPorcDepreciacionNivel(Object clasif, Object mater, Object antig){
+	public static BigDecimal buscarPorcDepreciacionNivel(Object clasif, Object mater, int antig, Object conser){
+		BigDecimal porcentajeDepreciacion = new BigDecimal("0.0");
 		Query query = XPersistence.getManager().createQuery("FROM DepreciacionNivel where clasificacionnivel_id = :clasif and materialnivel_id = :mater and (desde <= :antig and hasta >= :antig)");
 		query.setParameter ("clasif",clasif);
 		query.setParameter("mater",mater);
 		query.setParameter("antig",antig);
-		return query.getResultList();
+		List<DepreciacionNivel> results = query.getResultList();
+		for(DepreciacionNivel o: results) {
+			switch((Integer) conser) {
+			case 1: porcentajeDepreciacion= o.getMuyBueno();break;
+			case 2:	porcentajeDepreciacion= o.getBueno();break;
+			case 3: porcentajeDepreciacion= o.getRegular();break;
+			case 4: porcentajeDepreciacion= o.getMalo();break;
+			case 5:	porcentajeDepreciacion= o.getMuyMalo();break;
+			}
+		}	
+		return porcentajeDepreciacion;
 	}
 
 	public ClasificacionNivel getClasificacionNivel() {

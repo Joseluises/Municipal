@@ -5,16 +5,15 @@ import org.openxava.jpa.*;
 
 import com.sistemas.municipal.models.*;
 
-public class CopiarHojaResumenAction extends ViewBaseAction{ // getView
+public class CalcularArbitriosAction extends ViewBaseAction{ // getView
 	public void execute() throws Exception{
-		Object id = getView().getValue("id");
-		if(id==null) {
-			addError("hojaresumen_no_seleccionada");
-			return;
+		Object autovaluo = getView().getValue("autovaluodeclarado");
+		if(autovaluo == null) {
+			addMessage("autovaluo 0");
 		}
 		HojaResumen hojaResumen = XPersistence.getManager().find(HojaResumen.class, getView().getValue("id"));
-		hojaResumen.crearHojaResumen();
+		hojaResumen.calcularArbitrios();
 		getView().refresh();
-		addMessage("hojaResumen_copiada", hojaResumen.getAiniHr());
+		addMessage("predial_calculado");
 	}
 }
