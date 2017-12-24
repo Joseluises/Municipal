@@ -5,6 +5,7 @@ import org.openxava.actions.OnChangePropertyBaseAction;
 
 public class OnChangeValorTerrenoAction extends OnChangePropertyBaseAction{
 	public void execute() throws Exception{
+		Object ePredio 			 = getView().getValue("estadoPredio.id");
 		Object nmontoarancel	 = getView().getValue("montoArancel");
 		BigDecimal naream2		 = (BigDecimal) getView().getValue("areaM2");
 		BigDecimal nValorTerreno = new BigDecimal("0.0");
@@ -14,6 +15,7 @@ public class OnChangeValorTerrenoAction extends OnChangePropertyBaseAction{
 		}else {
 			nValorTerreno = ((BigDecimal) nmontoarancel).multiply(naream2);
 			getView().setValue("valorTerreno", nValorTerreno);
+			getView().setValue("totalAutovaluo", nValorTerreno);
 		}
 	}
 }

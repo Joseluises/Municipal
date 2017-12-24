@@ -8,17 +8,17 @@ import org.openxava.jpa.*;
 @Entity
 @Views({
 	@View(members=
-			"general["+
-			"codigo;"+
+			"Generales["+
+			"codigo;"+	
 			"distrito;"+
 			"sector,urbanizacion;"+
-			"tipo.descripcion,descripcion;"+
+			"tipo,descripcion;"+
 			"]"),
 		@View(name="ViaVista1",	members="codigo;distrito;sector,urbanizacion;tipo,descripcion"),
 		@View(name="ViaVista2",	members="codigo,sector,urbanizacion;tipo,descripcion"),
 		@View(name="ViaVista3",	members="sector,urbanizacion;tipo,descripcion;")
 })			
-@Tab(properties="codigo,distrito.sector,urbanizacion,descripcion,tipo,descripcion")
+@Tab(properties="codigo,distrito.descripcion")
 public class Via extends Deletable{
 	@Column(length = 7)
 	@ReadOnly
@@ -34,8 +34,7 @@ public class Via extends Deletable{
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@DescriptionsList
 	@NoFrame
-	@NoCreate
-	@NoModify
+	@NoCreate @NoModify
 	private Distrito distrito;
 	public Distrito getDistrito() {
 		return distrito;
@@ -47,6 +46,7 @@ public class Via extends Deletable{
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@DescriptionsList
+	@NoCreate @NoModify
 	private TipoVia tipo;
 	public TipoVia getTipo() {
 		return tipo;
@@ -70,6 +70,7 @@ public class Via extends Deletable{
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@DescriptionsList
 	@NoFrame
+	@NoCreate @NoModify
 	private Urbanizacion urbanizacion;
 	public Urbanizacion getUrbanizacion() {
 		return urbanizacion;
@@ -82,6 +83,7 @@ public class Via extends Deletable{
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@DescriptionsList
 	@NoFrame
+	@NoCreate @NoModify
 	private Sector sector;
 	public Sector getSector() {
 		return sector;

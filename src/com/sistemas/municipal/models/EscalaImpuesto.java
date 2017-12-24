@@ -7,8 +7,16 @@ import javax.persistence.*;
 import org.openxava.annotations.*;
 import org.openxava.calculators.*;
 
-@Views({ @View(members = "aini;" + "inicioAutovaluo,finAutovaluo;" + "tasaImpuesto;" + "impuestoAcumulado"),
-		@View(name = "Simple1", members = "aini,tasaImpuesto") })
+@Views({
+	@View(members=
+			"Generales["+
+				"aini;" + 
+				"inicioAutovaluo,finAutovaluo;" +
+				"tasaImpuesto;" +
+				"impuestoAcumulado"+
+			"]"),
+		@View(name="EscalaImpuestoVista1",	members="")
+})
 @Tab(properties = "aini,inicioAutovaluo,finAutovaluo,tasaImpuesto,impuestoAcumulado")
 @Entity
 public class EscalaImpuesto extends Deletable {

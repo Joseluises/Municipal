@@ -52,6 +52,7 @@ public class PredioUrbano extends Deletable {
 	private BigDecimal porcentajeCondominio;
 
 	@Column(length=9)
+	@Required
 	private BigDecimal frontis;
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
@@ -70,6 +71,7 @@ public class PredioUrbano extends Deletable {
 	}
 
 	@Column(length = 3)
+	@Required
 	private int anexo;
 	
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
@@ -124,7 +126,7 @@ public class PredioUrbano extends Deletable {
 	@NoCreate @NoModify
 	private TipoPredio tipoPredio;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.LAZY, optional=false)
 //	@DescriptionsList(depends="ainiPu", condition="${ainiPu} = ? ", descriptionProperties="descripcion", orderByKey=true)
 	@DescriptionsList(descriptionProperties="id,descripcion", orderByKey=true)
 	@NoCreate @NoModify
@@ -183,7 +185,7 @@ public class PredioUrbano extends Deletable {
 
 	
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
-	@DescriptionsList(orderByKey=true)
+	@DescriptionsList(descriptionProperties="id,descripcion", orderByKey=true)
 	@NoCreate @NoModify
 	private UbicacionParque ubicacionParque;
 	

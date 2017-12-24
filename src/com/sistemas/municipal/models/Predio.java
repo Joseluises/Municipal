@@ -23,8 +23,9 @@ import org.openxava.calculators.CurrentYearCalculator;
 import org.openxava.jpa.XPersistence;
 
 @Entity
-@Views({ @View(members = "generales[" +
+@Views({ @View(members =
 		"codigo;"+
+		"Via[" +
 		"via,numero,interior,manzana,lote;"+
 		"]"),	
 @View(name = "PredioVista1", members = "codigo;via,numero,interior,manzana,lote")})

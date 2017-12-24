@@ -116,7 +116,7 @@ public class HojaResumen extends Deletable {
 	
 	@OneToMany(mappedBy="parentHojaResumen", cascade=CascadeType.ALL)
 	@ListProperties("anexo,predio.codigo,predio.via.sector.descripcion,predio.via.urbanizacion.descripcion,predio.via.tipo.descripcion,predio.via.descripcion;"
-					+"predio.numero,predio.interior,predio.manzana,predio.lote, totalAutovaluo")
+					+"predio.numero,predio.interior,predio.manzana,predio.lote;totalAutovaluo")
 	private Collection<PredioUrbano> prediourbano = new ArrayList<PredioUrbano>();
 
 	@PrePersist

@@ -126,6 +126,7 @@ public class PredioUrbanoDetalle extends Deletable {
 	}
 
 	@Column(length = 9)
+	@Required
 	private BigDecimal areaConstruida;
 	@OnChange(OnChangeAreaConstruidaAction.class)
 	public BigDecimal getAreaConstruida() {

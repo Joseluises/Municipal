@@ -88,9 +88,6 @@
 		<subcontroller
 			controller="imprimir"
 			icon="menu"/>
-		<action name="Copiar" mode="list"
-				class="com.sistemas.municipal.actions.CopiarHojaResumenAction"
-				image="images/pdf.gif"/>
 	</controller>
 	<controller name="procesos">
 		<action name="Predial" mode="detail"

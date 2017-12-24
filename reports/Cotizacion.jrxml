@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Cotizacion" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="numero" class="java.lang.Integer"/>
+	<parameter name="cliente" class="java.lang.String"/>
+	<parameter name="fecha" class="java.lang.String"/>
+	<parameter name="cotizaciones" class="java.util.List">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<field name="producto.descripcion" class="java.lang.String"/>
+	<field name="producto.precio" class="java.math.BigDecimal"/>
+	<field name="producto.foto" class="java.lang.Object"/>
+	<field name="producto.observacion" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="206">
+			<rectangle>
+				<reportElement x="375" y="4" width="173" height="63"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="175" y="20" width="179" height="25" forecolor="#3333FF"/>
+				<textElement textAlignment="Center">
+					<font size="9" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[VENTA DE EQUIPOS Y SERVICIOS
+PARA RESTAURANTES Y HOTELES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="168" y="0" width="199" height="20" forecolor="#FF3333"/>
+				<textElement>
+					<font size="13" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[SABA EQUIPAMIENTOS  S.A.C.]]></text>
+			</staticText>
+			<image>
+				<reportElement x="2" y="4" width="147" height="90"/>
+				<imageExpression><![CDATA["D:\\openxava-4.7.1\\workspace\\SabaEquipamiento\\imagen\\logo 100x80.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="175" y="44" width="186" height="56" forecolor="#000000"/>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Calle Cerro Rico Nro. 164
+Urb. San Ignacio de Monterrico - Surco - Lima
+Oficina: (511) 275-3687
+www.sabaequipamientos.com
+e-mail: ventas@sabaequipamientos.com
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="398" y="4" width="138" height="23"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[R.U.C. 20525030432]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="375" y="24" width="173" height="20" backcolor="#333333"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="414" y="47" width="32" height="18" forecolor="#FF3333"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[001-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="159" width="553" height="47" isPrintInFirstWholeBand="true"/>
+				<textElement textAlignment="Justified" markup="none">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Ante todo reciba un saludo cordial de SABA EQUIPAMIENTOS, y nuestros mejores deseos para su proyecto, en mérito a lo solicitado, nos complace someter a su consideración nuestra oferta referente a la adquisición de los equipos cuya finalidad y desempeño son excelentes, asi tenemos:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="98" y="96" width="351" height="16"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{fecha}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="94" width="104" height="16"/>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Santiago de Surco, ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="111" width="60" height="16"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Señor(es):]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="143" width="60" height="16"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Presente.-]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="125" width="422" height="20"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{cliente}]]></textFieldExpression>
+			</textField>
+			<textField pattern="000000" isBlankWhenNull="false">
+				<reportElement x="446" y="47" width="78" height="20"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{numero}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="410" y="26" width="110" height="18" forecolor="#FFFFFF"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[COTIZACION Nº]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="1" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="24" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="24" backcolor="#CCCCCC"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="168" y="4" width="72" height="16"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Producto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="460" y="4" width="72" height="16"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Monto USD]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="194" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="194"/>
+			</rectangle>
+			<subreport>
+				<reportElement x="4" y="2" width="534" height="182"/>
+				<dataSourceExpression><![CDATA[$P{cotizaciones}]]></dataSourceExpression>
+			</subreport>
+			<image scaleImage="FillFrame" isLazy="true">
+				<reportElement x="26" y="7" width="167" height="145"/>
+				<imageExpression><![CDATA[JRImageRenderer.getInstance((byte []) $F{producto.foto})]]></imageExpression>
+			</image>
+			<textField pattern="##,##0.00" isBlankWhenNull="true">
+				<reportElement x="427" y="7" width="100" height="20"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{producto.precio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="41" y="162" width="127" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{producto.descripcion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="211" y="7" width="209" height="175"/>
+				<textElement textAlignment="Justified"/>
+				<textFieldExpression><![CDATA[$F{producto.observacion}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="2" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="3" splitType="Stretch"/>
+	</pageFooter>
+	<lastPageFooter>
+		<band height="262">
+			<staticText>
+				<reportElement isPrintRepeatedValues="false" x="2" y="0" width="553" height="145" isPrintInFirstWholeBand="true"/>
+				<textElement textAlignment="Justified" markup="none">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Nuestra oferta comprende:
+ Entrega, instalación y puesta en marcha de los equipos (para Lima Metropolitana)
+ Capacitación en el correcto uso de la máquina o equipo adquirido
+ Asesoramiento técnico-comercial permanente
+ Garantía de 01 Año
+
+Forma de Pago: CONTADO CONTRAENTREGA
+Tiempo de Entrega: Inmediata (sujeta a verificación de stock)
+
+Quedamos atentos a su conformidad, o dispuestos a atender cualquier consulta adicional.
+Atentamente,
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="162" width="179" height="41" forecolor="#3333FF"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[RONALD SÀNCHEZ RODRÌGUEZ
+RPC: 987-556-821 - 991-225-401
+Nextel: (99) 402*5026]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="175" y="223" width="179" height="28" forecolor="#000000"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Visite nuestra página Web:
+www.sabaequipamiento.com]]></text>
+			</staticText>
+		</band>
+	</lastPageFooter>
+</jasperReport>
